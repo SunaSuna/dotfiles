@@ -1,0 +1,9 @@
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim.git
+[submodule ".vim/bundle/caw.vim"]
+	path = .vim/bundle/caw.vim
+	url = https://github.com/tyru/caw.vim
+[submodule ".vim/bundle/neocomplcache"]
+	path = .vim/bundle/neocomplcache
+	url = https://github.com/Shougo/neocomplcache.vim.git
