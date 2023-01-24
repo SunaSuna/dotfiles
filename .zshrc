@@ -73,18 +73,18 @@ scp-to-local-okuru-admin-prd() {
   AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access sunagawa@i-08287b95b478afe92:$1 $2
 }
 
-alias ssh-okuru-admin-stg="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-070f930819749a065"
+alias ssh-okuru-admin-stg="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0fdc2e058e84c59ef"
 alias ssh-okuru-sidekiq-stg="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0bab496b47d2473d7"
 alias ssh-okuru-batch-stg="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-025adaaf5877fe7a7"
-alias ssh-pf-okuru-rds-stg="AWS_DEFAULT_PROFILE=okuru ssh -L 13306:okuru-staging.c5d3yq3ae2lv.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-070f930819749a065"
+alias ssh-pf-okuru-rds-stg="AWS_DEFAULT_PROFILE=okuru ssh -L 13306:okuru-staging.c5d3yq3ae2lv.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-0f0435467abfc2398"
 scp-okuru-batch-stg() {
   AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access $1 sunagawa@i-03d94bb18b1e77b2e:~/
 }
 scp-okuru-admin-stg() {
-  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access $1 sunagawa@i-070f930819749a065:~/
+  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access $1 sunagawa@i-0fdc2e058e84c59ef:~/
 }
 scp-to-local-okuru-admin-stg() {
-  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access sunagawa@i-070f930819749a065:$1 $2
+  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access sunagawa@i-0fdc2e058e84c59ef:$1 $2
 }
 
 alias ssh-mnenga-admin-prd="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0e0db71546b3c4711"
@@ -104,3 +104,4 @@ alias ssh-master-user-app-itg="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_a
 alias ssh-pf-master-user-rds-itg="AWS_DEFAULT_PROFILE=mnenga ssh -L 13306:master-user-rds-integration.cluster-ro-cajodrlbnjl5.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-00cd8f68aacd06585"
 alias ssh-pf-fujifilm-factory="AWS_DEFAULT_PROFILE=mnenga ssh -L 10021:lpdo.fujifilmmall.jp:60990 -i ~/.ssh/id_rsa_aws_access sunagawa@i-0c6d53c344dffacd2"
 
+alias ssh-pf-yearcara-rdsd-prd="AWS_DEFAULT_PROFILE=yearcard ssh -L 13306:yearcard-production.cdg8mqa1ctvv.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-036a01838b4701e37"
