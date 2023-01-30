@@ -30,12 +30,13 @@ brew "yarn"
 brew "zinit"
 brew "zsh"
 
-cask "alfred"
+cask "alfred", args: { appdir: "/Applications" }
 cask "apparency", args: { appdir: "/Applications" }
 cask "docker"
-cask "google-chrome"
-cask "iterm2"
-cask "postman"
+cask "google-chrome", args: { appdir: "/Applications" }
+cask "google-japanese-ime"
+cask "iterm2", args: { appdir: "/Applications" }
+cask "postman", args: { appdir: "/Applications" }
 cask "provisionql", args: { appdir: "/Applications" }
 cask "qlcolorcode", args: { appdir: "/Applications" }
 cask "qlimagesize", args: { appdir: "/Applications" }

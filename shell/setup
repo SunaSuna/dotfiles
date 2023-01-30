@@ -40,6 +40,10 @@ if [ ! -d ~/.config ]
 		mkdir ~/.config
 fi
 
+echo "シンボリックリンクを貼る"
+echo "Symlinking dotfiles..."
+sh ~/dotfiles/shell/symlink && echo "Done."
+
 echo "zsh-autosuggestionsをインストール"
 sh ~/dotfiles/shell/zsh-autosuggestions
 
@@ -49,6 +53,3 @@ sh ~/dotfiles/shell/zprezto
 echo "zshの設定を読み込む"
 source ~/.zshrc
 
-echo "シンボリックリンクを貼る"
-echo "Symlinking dotfiles..."
-sh ~/dotfiles/shell/symlink && echo "Done."
