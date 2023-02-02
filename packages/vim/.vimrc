@@ -55,29 +55,6 @@ let g:lightline = {
 let g:neocomplcache_enable_at_startup = 1
 
 "----------------------------------------
-" 操作設定
-"----------------------------------------
-" tabを半角スペース化
-set expandtab
-" 行頭以外のtabをスペース2個分にする
-set tabstop=2
-" 行頭以外のtabをスペース2個分にする
-set shiftwidth=2
-set softtabstop=2
-" 自動インデント2
-set autoindent
-" バックスペースキー有効
-set backspace=start,eol,indent
-" ヤンクでクリップボードにコピー
-set clipboard=unnamed,autoselect
-" マウス操作の有効化 & ホイール操作の有効化
-set mouse=a
-set ttymouse=xterm2
-" 削除キーでyankしない
-nnoremap x "_x
-nnoremap d "_d
-
-"----------------------------------------
 " 表示設定
 "----------------------------------------
 " 行番号
@@ -129,3 +106,26 @@ set nobackup
 set noswapfile
 " 保存時に行末のゴミ空白を削除
 autocmd BufWritePre * :%s/\s\+$//ge
+
+"----------------------------------------
+" 操作設定
+"----------------------------------------
+" tabを半角スペース化
+set expandtab
+" 行頭以外のtabをスペース2個分にする
+set tabstop=2
+" 行頭以外のtabをスペース2個分にする
+set shiftwidth=2
+set softtabstop=2
+" 自動インデント2
+set autoindent
+" バックスペースキー有効
+set backspace=start,eol,indent
+" ヤンクでクリップボードにコピー
+set clipboard=unnamed,autoselect
+" 削除キーでyankしない
+nnoremap x "_x
+nnoremap d "_d
+" マウス操作の有効化 & ホイール操作の有効化
+set mouse=a
+set ttymouse=xterm2

@@ -6,7 +6,7 @@ eval "$(starship init zsh)"
 
 ##### zinit
 source $(brew --prefix)/opt/zinit/zinit.zsh
-
+#
 ##### コマンド補完
 zinit ice wait'0'; zinit light zsh-users/zsh-completions
 autoload -Uz compinit && compinit
@@ -105,3 +105,6 @@ alias ssh-pf-master-user-rds-itg="AWS_DEFAULT_PROFILE=mnenga ssh -L 13306:master
 alias ssh-pf-fujifilm-factory="AWS_DEFAULT_PROFILE=mnenga ssh -L 10021:lpdo.fujifilmmall.jp:60990 -i ~/.ssh/id_rsa_aws_access sunagawa@i-0c6d53c344dffacd2"
 
 alias ssh-pf-yearcara-rdsd-prd="AWS_DEFAULT_PROFILE=yearcard ssh -L 13306:yearcard-production.cdg8mqa1ctvv.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-036a01838b4701e37"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+eval "$(pyenv init -)"
