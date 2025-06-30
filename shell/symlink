@@ -1,4 +1,4 @@
 #!/bin/sh
 
 echo "Symlinking dotfiles..."
-stow -v -d ~/dotfiles/packages -t ~ zsh vim git
+stow -v -d ~/dotfiles/packages -t ~ zsh vim git aws_role
