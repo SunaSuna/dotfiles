@@ -44,6 +44,9 @@ echo "シンボリックリンクを貼る"
 echo "Symlinking dotfiles..."
 sh ~/dotfiles/shell/symlink && echo "Done."
 
+echo "zinitをインストール"
+sh ~/dotfiles/shell/zinit
+
 echo "zsh-autosuggestionsをインストール"
 sh ~/dotfiles/shell/zsh-autosuggestions
 

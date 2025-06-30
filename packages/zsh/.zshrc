@@ -4,25 +4,11 @@ eval "$(rbenv init -)"
 ##### starship
 eval "$(starship init zsh)"
 
-##### zinit
-source $(brew --prefix)/opt/zinit/zinit.zsh
-#
-##### コマンド補完
-zinit ice wait'0'; zinit light zsh-users/zsh-completions
-autoload -Uz compinit && compinit
-
 ## 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 ## 補完候補を一覧表示したとき、Tabや矢印で選択できるようにする
 zstyle ':completion:*:default' menu select=1
-
-#### シンタックスハイライト
-zinit light zsh-users/zsh-syntax-highlighting
-
-#### 履歴補完
-zinit light zsh-users/zsh-autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 #### peco
 ## コマンド履歴検索
@@ -59,52 +45,136 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias v="vim"
 alias be="bundle exec"
-alias ssh-okuru-admin-prd="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-08287b95b478afe92"
-alias ssh-okuru-sidekiq-prd="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-045478382fad99a73"
-alias ssh-okuru-batch-prd="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-02c796002cc99de13"
-alias ssh-pf-okuru-rds-prd="AWS_DEFAULT_PROFILE=okuru ssh -L 13306:okuru-production.c5d3yq3ae2lv.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-02c796002cc99de13"
-scp-okuru-batch-prd() {
-  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access $1 sunagawa@i-02c796002cc99de13:~/
-}
-scp-okuru-admin-prd() {
-  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access $1 sunagawa@i-08287b95b478afe92:~/
-}
-scp-to-local-okuru-admin-prd() {
-  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access sunagawa@i-08287b95b478afe92:$1 $2
-}
 
-alias ssh-okuru-admin-stg="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0fdc2e058e84c59ef"
-alias ssh-okuru-sidekiq-stg="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0bab496b47d2473d7"
-alias ssh-okuru-batch-stg="AWS_DEFAULT_PROFILE=okuru ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-025adaaf5877fe7a7"
-alias ssh-pf-okuru-rds-stg="AWS_DEFAULT_PROFILE=okuru ssh -L 13306:okuru-staging.c5d3yq3ae2lv.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-0f0435467abfc2398"
-scp-okuru-batch-stg() {
-  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access $1 sunagawa@i-03d94bb18b1e77b2e:~/
-}
-scp-okuru-admin-stg() {
-  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access $1 sunagawa@i-0fdc2e058e84c59ef:~/
-}
-scp-to-local-okuru-admin-stg() {
-  AWS_DEFAULT_PROFILE=okuru scp -i ~/.ssh/id_rsa_aws_access sunagawa@i-0fdc2e058e84c59ef:$1 $2
-}
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
 
-alias ssh-mnenga-admin-prd="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0e0db71546b3c4711"
-alias ssh-mnenga-batch-prd="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0c6d53c344dffacd2"
-alias ssh-pf-mnenga-rds-prd="AWS_DEFAULT_PROFILE=mnenga ssh -L 13306:mitene-nenga-rds-production.cluster-ro-cajodrlbnjl5.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-087437ad4f1c40c0b"
-alias ssh-mnenga-admin-stg="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0954bc7762e7d0c86"
-alias ssh-mnenga-batch-stg="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0c5682b6cc992a46f"
-alias ssh-pf-mnenga-rds-stg="AWS_DEFAULT_PROFILE=mnenga ssh -L 13306:mitene-nenga-rds-stage.cluster-ro-cajodrlbnjl5.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-0c5682b6cc992a46f"
-alias ssh-mnenga-batch-itg="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-050133076d4bd19cc"
-alias ssh-pf-mnenga-rds-itg="AWS_DEFAULT_PROFILE=mnenga ssh -L 13306:mitene-nenga-rds-integration.cluster-ro-cajodrlbnjl5.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-050133076d4bd19cc"
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-alias ssh-master-user-app-prd="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0680b569e841dbe7c"
-alias ssh-pf-master-user-rds-prd="AWS_DEFAULT_PROFILE=mnenga ssh -L 13306:master-user-rds-production.cluster-ro-cajodrlbnjl5.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-02eaa1795382d7ef9"
-alias ssh-master-user-app-stg="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-0856ce80d44da46ee"
-alias ssh-pf-master-user-rds-stg="AWS_DEFAULT_PROFILE=mnenga ssh -L 13306:master-user-rds-stage.cluster-ro-cajodrlbnjl5.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-0856ce80d44da46ee"
-alias ssh-master-user-app-itg="AWS_DEFAULT_PROFILE=mnenga ssh -i ~/.ssh/id_rsa_aws_access sunagawa@i-00cd8f68aacd06585"
-alias ssh-pf-master-user-rds-itg="AWS_DEFAULT_PROFILE=mnenga ssh -L 13306:master-user-rds-integration.cluster-ro-cajodrlbnjl5.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-00cd8f68aacd06585"
-alias ssh-pf-fujifilm-factory="AWS_DEFAULT_PROFILE=mnenga ssh -L 10021:lpdo.fujifilmmall.jp:60990 -i ~/.ssh/id_rsa_aws_access sunagawa@i-0c6d53c344dffacd2"
+##### コマンド補完
+zinit ice wait'0'; zinit light zsh-users/zsh-completions
+autoload -Uz compinit && compinit
 
-alias ssh-pf-yearcara-rdsd-prd="AWS_DEFAULT_PROFILE=yearcard ssh -L 13306:yearcard-production.cdg8mqa1ctvv.ap-northeast-1.rds.amazonaws.com:3306 -i ~/.ssh/id_rsa_aws_access sunagawa@i-036a01838b4701e37"
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
-eval "$(pyenv init -)"
+#### シンタックスハイライト
+zinit light zsh-users/zsh-syntax-highlighting
+
+#### 履歴補完
+zinit light zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
+
+#### mysql
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
+
+#### dotfile bin
+export DOTFILE_BIN_ROOT="$HOME/dotfiles_bin"
+export PATH="$DOTFILE_BIN_ROOT/:$PATH"
+
+#### openssl
+export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+
+### mise
+eval "$(mise env)"
+eval "$(mise activate bash)"
+
+############## Android
+export ANDROID_SDK_ROOT=~/Library/Android/sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/tools/bin:$ANDROID_SDK_ROOT/platform-tools
+
+############## AWS
+alias aws-r-okuru-dev='eval $(assume-role okuru-itg)'
+alias aws-r-okuru='eval $(assume-role okuru)'
+
+############## ECS
+ecs-exec-command() {
+    # Check if the right number of arguments are passed
+    if [ $# -ne 3 ]; then
+        echo "Usage: ecs_exec_command <cluster> <container> <service>"
+        return 1
+    fi
+
+    # Get the parameters
+    cluster=$1
+    container=$2
+    service=$3
+
+    # Command to execute
+    command="/bin/sh"
+
+    # Get the list of task ARNs for the service
+    taskArns=$(aws ecs list-tasks --cluster $cluster --service-name $service --query 'taskArns' --output text)
+
+    # If there are no tasks, exit
+    if [ -z "$taskArns" ]; then
+        echo "No tasks found for service $service in cluster $cluster"
+        return 1
+    fi
+
+    # Get the first task ARN
+    taskArn=$(echo $taskArns | awk '{print $1}')
+
+    # Get the task ID from the task ARN
+    taskId=${taskArn##*/}
+
+    # Execute command on the task
+    aws ecs execute-command \
+    --cluster $cluster \
+    --container $container \
+    --interactive \
+    --command "$command" \
+    --task $taskId
+}
+alias ecs-exec-to-admin-itg="aws-r-okuru-dev; ecs-exec-command okuru-integration app okuru-itg-admin"
+alias ecs-exec-to-admin-prod="aws-r-okuru; ecs-exec-command okuru-production app okuru-prod-admin"
+
+ssm-port-forwarding() {
+    # Check if the right number of arguments are passed
+    if [ $# -ne 4 ]; then
+      echo "Usage: ecs_exec_command <cluster> <container> <service> <rds_host>"
+      return 1
+    fi
+
+    # Get the parameters
+    cluster=$1
+    container=$2
+    service=$3
+    rds_host=$4
+
+    # Get the list of task ARNs for the service
+    taskArns=$(aws ecs list-tasks --cluster $cluster --service-name $service --query 'taskArns' --output text)
+
+    # If there are no tasks, exit
+    if [ -z "$taskArns" ]; then
+      echo "No tasks found for service $service in cluster $cluster"
+      return 1
+    fi
+
+    # Get the first task ARN
+    taskArn=$(echo $taskArns | awk '{print $1}')
+
+    # Get the task ID from the task ARN
+    taskId=${taskArn##*/}
+
+    runtime_id=$(aws ecs describe-tasks --cluster $cluster --task $taskId | jq -r --arg CONTAINER_NAME $container '.tasks[0].containers[] | select(.name == $CONTAINER_NAME).runtimeId')
+    target=$(echo "ecs:${cluster}_${taskId}_${runtime_id}")
+
+    echo "target..... ${target}"
+
+    paramaters="{\"host\":[\"${rds_host}\"],\"portNumber\":[\"3306\"],\"localPortNumber\":[\"13306\"]}"
+
+    # コンテナへのポートフォワーディング開始
+    aws ssm start-session \
+      --target $target \
+      --document-name AWS-StartPortForwardingSessionToRemoteHost \
+      --parameters $paramaters
+}
+alias pf-itg-admin-rds="aws-r-okuru-dev; ssm-port-forwarding okuru-integration app okuru-itg-admin okuru-integration.c1brow9f43u1.ap-northeast-1.rds.amazonaws.com"
+alias pf-prod-admin-rds="aws-r-okuru; ssm-port-forwarding okuru-production app okuru-prod-admin okuru-production.c5d3yq3ae2lv.ap-northeast-1.rds.amazonaws.com"

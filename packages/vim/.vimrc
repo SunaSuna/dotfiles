@@ -14,7 +14,8 @@ call vundle#begin()
   Plugin 'slim-template/vim-slim.git'
   Plugin 'tyru/caw.vim.git'
   Plugin 'itchyny/lightline.vim'
-  Plugin 'Shougo/neocomplcache'
+  " Plugin 'Shougo/neocomplcache'
+  Plugin 'ekalinin/Dockerfile.vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -63,11 +64,11 @@ set number
 set laststatus=2
 " テーマカラー
 let g:rehash256 = 1
-colorscheme custom
 " コマンドラインの履歴を10000件保存するV
 set history=10000
 " シンタックスハイライト
 syntax on
+colorscheme custom
 " タブ文字を CTRL-I で表示し、行末に $ で表示する
 set list
 " 行末のスペースを可視化
@@ -77,7 +78,6 @@ set cursorline
 " 対応する括弧の強調表示
 set showmatch
 " ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "----------------------------------------
 " 検索設定
@@ -128,4 +128,4 @@ nnoremap x "_x
 nnoremap d "_d
 " マウス操作の有効化 & ホイール操作の有効化
 set mouse=a
-set ttymouse=xterm2
+" set ttymouse=xterm2
